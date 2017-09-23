@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pyshortix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/beauter.min.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <ul class="topnav" id="myTopnav">
+        <li><a class="brand" href="/">Shorten</a></li>
+        <li><a href="#">About</a></li>
+
+    </ul>
+    <div class="row">
+        <div class="col m12">
+
+
+            <form method="POST" name="url" action="/shorten"><input type="text" name="full_url" class="_width100"
+                                                                    placeholder="Insert valid URL"/>
+                <button class="button _success" type="submit">Shorten</button>
+            </form>
+
+            {% if warnings %}
+                <div id="warnings" class="alert">{{ warnings }}</div>
+            {% endif %}
+            {% if short_url %}
+                <div id="result" class="alert _cream">{{ short_url }}&nbsp;
+                    <button class="button _xsmall">Copy</button>
+                </div>
+            {% endif %}
+
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
